@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_producto_form" model="ir.ui.view"> 
+        <field name="name">tienda.producto.form</field>
+        <field name="model">tienda.producto</field>
+        <field name="arch" type="xml"> 
+            <form string="Listado de Producto"> 
+                <group> 
+                    <field name="nombre"/> 
+                    <field name="descripcion"/>
+                    <field name="proveedor"/> 
+                    <field name="precio_coste"/> 
+                    <field name="precio_venta"/> 
+                    <field name="referecia_proveedor"/> 
+                    <field name="codigo_barras"/> 
+                    <field name="stock"/> 
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_producto_tree" model="ir.ui.view"> 
+        <field name="name">tienda.producto.tree</field>
+        <field name="model">tienda.producto</field>
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="nombre"/> 
+                    <field name="descripcion"/>
+                    <field name="proveedor"/> 
+                    <field name="precio_coste"/> 
+                    <field name="precio_venta"/> 
+                    <field name="referecia_proveedor"/> 
+                    <field name="codigo_barras"/> 
+                    <field name="stock"/> 
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_producto"> 
+        <field name="name">producto</field> 
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">tienda.producto</field>
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_producto_menu" name="Producto" sequence="10"/> 
+<menuitem id="submenu_ej_producto_menu" name="Producto" sequence="10" parent="ej_producto_menu"/> 
+<menuitem id="submenu_ej_producto_action" name="Producto" sequence="10" parent="submenu_ej_producto_menu" action="act_ej_producto"/> 
+</odoo> 
