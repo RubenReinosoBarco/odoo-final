@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_gasto_real_form" model="ir.ui.view">
+        <field name="name">gastos_mes.gasto_real.form</field>
+        <field name="model">gastos_mes.gasto_real</field>
+        <field name="arch" type="xml"> 
+            <form string="Listado de gasto_real">
+                <group> 
+                    <field name="mes"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_gasto_real_tree" model="ir.ui.view">
+        <field name="name">gastos_mes.gasto_real.tree</field>
+        <field name="model">gastos_mes.gasto_real</field>
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="mes"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_gastos_mes">
+        <field name="name">gastos_mes</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">gastos_mes.gasto_real</field>
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_gastos_mes_menu" name="gastos_mes" sequence="10"/>
+<menuitem id="submenu_ej_gastos_mes_menu" name="gastos_mes" sequence="10" parent="ej_gastos_mes_menu"/>
+<menuitem id="submenu_ej_gastos_mes_action" name="gastos_mes" sequence="10" parent="submenu_ej_gastos_mes_menu" action="act_ej_gastos_mes"/>
+</odoo> 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_mes_form" model="ir.ui.view">
+        <field name="name">gastos_mes.mes.form</field>
+        <field name="model">gastos_mes.mes</field>
+        <field name="arch" type="xml"> 
+            <form string="Listado de mes">
+                <group> 
+                    <field name="mes"/>
+                    <field name="anio"/>
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_mes_tree" model="ir.ui.view">
+        <field name="name">gastos_mes.mes.tree</field>
+        <field name="model">gastos_mes.mes</field>
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="mes"/>
+                    <field name="anio"/>
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_mes">
+        <field name="name">mes</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">gastos_mes.mes</field>
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_mes_menu" name="mes" sequence="10"/>
+<menuitem id="submenu_ej_mes_menu" name="mes" sequence="10" parent="ej_mes_menu"/>
+<menuitem id="submenu_ej_mes_action" name="mes" sequence="10" parent="submenu_ej_mes_menu" action="act_ej_mes"/>
+</odoo> 

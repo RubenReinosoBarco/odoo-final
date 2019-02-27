@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_presupuesto_gastos_form" model="ir.ui.view">
+        <field name="name">gastos_mes.presupuesto_gasto.form</field>
+        <field name="model">gastos_mes.presupuesto_gasto</field>
+        <field name="arch" type="xml"> 
+            <form string="Listado de presupuesto_gastos">
+                <group> 
+                    <field name="mes"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_presupuesto_gastos_tree" model="ir.ui.view">
+        <field name="name">gastos_mes.presupuesto_gasto.tree</field>
+        <field name="model">gastos_mes.presupuesto_gasto</field>
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="mes"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_presupuesto_gastos">
+        <field name="name">presupuesto_gastos</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">gastos_mes.presupuesto_gasto</field>
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_presupuesto_gastos_menu" name="presupuesto_gastos" sequence="10"/>
+<menuitem id="submenu_ej_presupuesto_gastos_menu" name="presupuesto_gastos" sequence="10" parent="ej_presupuesto_gastos_menu"/>
+<menuitem id="submenu_ej_presupuesto_gastos_action" name="presupuesto_gastos" sequence="10" parent="submenu_ej_presupuesto_gastos_menu" action="act_ej_presupuesto_gastos"/>
+</odoo> 

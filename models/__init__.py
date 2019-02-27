@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*- 
-import cliente, carrito, proveedor, producto
+import resumen_cuentas, mes, gasto_real, presupuesto_gasto

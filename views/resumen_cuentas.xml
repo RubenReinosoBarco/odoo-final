@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<odoo> 
+<!-- Comentario en la Views --> 
+     <record id="view_ej_resumen_cuentas_form" model="ir.ui.view">
+        <field name="name">gastos_mes.resumen_cuentas.form</field>
+        <field name="model">gastos_mes.resumen_cuentas</field>
+        <field name="arch" type="xml"> 
+            <form string="Listado de resumen_cuentas">
+                <group> 
+                    <field name="mes"/>
+                    <field name="presupuesto_gasto"/>
+                    <field name="gasto_real"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+                </group> 
+            </form> 
+        </field> 
+    </record> 
+     <record id="view_ej_resumen_cuentas_tree" model="ir.ui.view">
+        <field name="name">gastos_mes.resumen_cuentas.tree</field>
+        <field name="model">gastos_mes.resumen_cuentas</field>
+        <field name="arch" type="xml"> 
+           <tree> 
+                    <field name="mes"/>
+                    <field name="presupuesto_gasto"/>
+                    <field name="gasto_real"/>
+                    <field name="precio_piso"/>
+                    <field name="gastos_piso"/>
+                    <field name="gastos_salir"/>
+                    <field name="total"/>
+           </tree> 
+        </field> 
+    </record> 
+    <record model="ir.actions.act_window" id="act_ej_resumen_cuentas">
+        <field name="name">resumen_cuentas</field>
+        <field name="type">ir.actions.act_window</field> 
+        <field name="res_model">gastos_mes.resumen_cuentas</field>
+        <field name="view_type">form</field> 
+        <field name="view_mode">tree,form</field> 
+    </record> 
+<!--  Declaramos los menu --> 
+<menuitem id="ej_resumen_cuentas_menu" name="resumen_cuentas" sequence="10"/>
+<menuitem id="submenu_ej_resumen_cuentas_menu" name="resumen_cuentas" sequence="10" parent="ej_resumen_cuentas_menu"/>
+<menuitem id="submenu_ej_resumen_cuentas_action" name="resumen_cuentas" sequence="10" parent="submenu_ej_resumen_cuentas_menu" action="act_ej_resumen_cuentas"/>
+</odoo> 
